@@ -4,27 +4,34 @@ import TaskInput from "./components/TaskInput";
 import store from "./store";
 import { observer } from "mobx-react";
 
+interface ITask {
+  id: number;
+  title: string;
+  done: boolean;
+}
+
+@observer
 class App extends React.Component {
-  addTask = task => {
-    store.addTask(task);
+  addTask = (title: string) => {
+    store.addTask(title);
   };
 
-  doneTask = id => {
+  doneTask = (id: number) => {
     store.markAsDone(id);
   };
 
-  deleteTask = id => {
+  deleteTask = (id: number) => {
     store.deleteTask(id);
   };
 
   render() {
-    const { tasks } = store;
-
     return (
       <div className="container">
         <div className="App">
-          <h1 className="top">Активные задачи: {tasks.filter(task => !task.done).length}</h1>
-          {tasks.map((task) => (
+          <h1 className="top">
+            Активные задачи: {store.tasks.filter(task => !task.done).length}
+          </h1>
+          {store.tasks.map((task) => (
             <Task
               doneTask={() => this.doneTask(task.id)}
               deleteTask={() => this.deleteTask(task.id)}
@@ -39,4 +46,4 @@ class App extends React.Component {
   }
 }
 
-export default observer(App);
+export default App;

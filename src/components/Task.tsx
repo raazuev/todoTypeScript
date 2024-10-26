@@ -1,13 +1,23 @@
 import React from "react";
 
-const Task = ({ task, ...props }) => {
+interface Props {
+  task: {
+    id: number;
+    title: string;
+    done: boolean;
+  };
+  doneTask: () => void;
+  deleteTask: () => void;
+}
+
+const Task: React.FC<Props> = ({ task, doneTask, deleteTask }) => {
 
   const ActionBtn = () =>
     <div className="action-btn">
       {!task.done ? (
-        <p onClick={props.doneTask}>✔️</p>
+        <p onClick={doneTask}>✔️</p>
       ) : (
-        <p onClick={props.deleteTask}>❌</p>
+        <p onClick={deleteTask}>❌</p>
       )}
     </div>
 
