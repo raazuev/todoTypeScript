@@ -1,0 +1,101 @@
+body
+    margin: 0 auto
+    background-color: #d8d8d8
+    scroll-behavior: smooth
+    box-sizing: border-box
+.container
+    display: flex
+    justify-content: center
+    align-items: center
+    margin-bottom: 100px
+    .App
+        max-height: 500px
+        overflow-y: auto
+        margin-top: 100px
+        padding: 20px 20px
+        display: flex
+        flex-direction: column
+        align-content: center
+        align-items: center
+        gap: 20px
+        border-radius: 10px
+        box-shadow: 0px 4px 21px 5px #515151
+        &::-webkit-scrollbar
+            width: 4px
+            height: 20px
+            scrollbar-gutter: stable
+        &::-webkit-scrollbar-thumb
+            background-color: #343434
+            border-radius: 10px
+            width: 20px
+            background-clip: padding-box
+        &::-webkit-scrollbar-track
+            background-color: #ADB6BF66
+            margin: 40px
+        .top
+            background-color: #a6a6a6
+            border-radius: 20px
+            padding: 30px 30px
+            color: #ededed
+        .task
+            display: flex
+            align-items: center
+            gap: 16px
+            font-size: 24px
+            font-weight: 500
+            color: #fff
+            border-radius: 10px
+            padding: 10px 10px
+            .action-btn
+                cursor: pointer
+                transition: all .5s ease
+                &:hover
+                    transform: scale(1.1)
+        .task-done
+            background-color: #3f3f3f27
+            .action-btn
+                cursor: pointer
+                transition: all .5s ease
+                &:hover
+                    transform: scale(1.1)
+        .task-input
+            padding-top: 30px
+            position: sticky
+            bottom: 5px
+            transform: scale(0.5)
+            transition: transform .5s ease
+            &:hover
+                transform: scale(1)
+            &:focus
+                transform: scale(1.9)
+            input
+                width: 100%
+                min-height: 50px
+                border: none
+                border-radius: 10px
+                outline: 0
+                &:hover
+                    outline: 2px solid blue
+                &:focus-visible
+                    outline: 0
+                &::placeholder
+                    position: absolute
+                    z-index: 2
+                    transition: all .5s ease
+                &:focus::placeholder
+                    font-size: 11px
+                    transform: translateY(-17px)
+            button
+                margin-top: 10px
+                width: 100%
+                height: 40px
+                border-radius: 30px
+                border: none
+                transition: all .5s ease
+                &:hover
+                    transform: scale(1.09)
+                    background-color: #848484
+                    color: #fff
+                &:active
+                    transform: scale(1)
+            
