@@ -1,3 +1,3 @@
-# todoJS
+# todoTypeScript
 
-Список задач на js и mobx
+Список задач на TypeScript и MobX
