@@ -4,7 +4,7 @@ import store from "../../store/store";
 
 const TaskDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const task = store.findTask(Number(id)); // Теперь доступно
+  const task = store.findTask(Number(id));
 
   if (!task) {
     return <div>Задача не найдена</div>;

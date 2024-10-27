@@ -29,7 +29,14 @@ class Store {
   }
 
   addTask(title: string, details: string = "") {
-    const newTask: ITask = { id: this.tasks.length, title, details, done: false, isSelected: false, subtasks: [] };
+    const newTask: ITask = {
+      id: Date.now(), // Используем уникальный идентификатор
+      title,
+      details,
+      done: false,
+      isSelected: false,
+      subtasks: [],
+    };
     this.tasks.push(newTask);
     this.saveTasks(); // Сохраняем задачи в localStorage
   }
@@ -112,7 +119,7 @@ class Store {
         this.updateSubtaskSelection(subtask.subtasks, isSelected); // Рекурсивно обновляем подзадачи
       });
     }
-  } 
+  }
 }
 
 const store = new Store();
