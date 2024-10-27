@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import Task from "./components/Task/Task";
 import TaskInput from "./components/TaskInput/TaskInput";
-import TaskDetails from "./components/TaskDetails/TaskDetails";
+import SearchBar from "./components/Search/SearchBar";
 import store from "./store/store";
 import { observer } from "mobx-react";
 import { ITask } from "./store/store";
 
 const App: React.FC = observer(() => {
   const [selectedTask, setSelectedTask] = useState<ITask | null>(null);
+  const [searchTerm, setSearchTerm] = useState(""); // Состояние для хранения строки поиска
 
   const addTask = (title: string) => {
     store.addTask(title);
@@ -29,11 +30,21 @@ const App: React.FC = observer(() => {
     setSelectedTask(task);
   };
 
+  // Фильтруем задачи на основе строки поиска
+  const filteredTasks = store.tasks.filter(task =>
+    task.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    task.details.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    (task.subtasks && task.subtasks.some(subtask =>
+      subtask.title.toLowerCase().includes(searchTerm.toLowerCase())
+    ))
+  );
+
   return (
     <div className="container">
       <div className="App">
-        <h1 className="top">Активные задачи: {store.tasks.filter(task => !task.done).length}</h1>
-        {store.tasks.map((task) => (
+        <h1 className="top">Активные задачи: {filteredTasks.filter(task => !task.done).length}</h1>
+        <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm} /> {}
+        {filteredTasks.map((task) => (
           <Task
             key={task.id}
             task={task}
