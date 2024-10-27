@@ -1,5 +1,6 @@
 @import ../components/Task/_Task
 @import ../components/TaskInput/_TaskInpun
+@import ./_mixin
 
 body
     margin: 0 auto
@@ -40,4 +41,10 @@ body
             border-radius: 20px
             padding: 30px 30px
             color: #ededed
-            
+
+.light-theme
+    @include light-theme
+.dark-theme
+    @include dark-theme
+.system-theme
+    @include system-theme
