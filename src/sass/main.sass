@@ -1,3 +1,6 @@
+@import ../components/Task/_Task
+@import ../components/TaskInput/_TaskInpun
+
 body
     margin: 0 auto
     background-color: #d8d8d8
@@ -37,65 +40,4 @@ body
             border-radius: 20px
             padding: 30px 30px
             color: #ededed
-        .task
-            display: flex
-            align-items: center
-            gap: 16px
-            font-size: 24px
-            font-weight: 500
-            color: #fff
-            border-radius: 10px
-            padding: 10px 10px
-            .action-btn
-                cursor: pointer
-                transition: all .5s ease
-                &:hover
-                    transform: scale(1.1)
-        .task-done
-            background-color: #3f3f3f27
-            .action-btn
-                cursor: pointer
-                transition: all .5s ease
-                &:hover
-                    transform: scale(1.1)
-        .task-input
-            padding-top: 30px
-            position: sticky
-            bottom: 5px
-            transform: scale(0.5)
-            transition: transform .5s ease
-            &:hover
-                transform: scale(1)
-            &:focus
-                transform: scale(1.9)
-            input
-                width: 100%
-                min-height: 50px
-                border: none
-                border-radius: 10px
-                outline: 0
-                &:hover
-                    outline: 2px solid blue
-                &:focus-visible
-                    outline: 0
-                &::placeholder
-                    position: absolute
-                    z-index: 2
-                    transition: all .5s ease
-                &:focus::placeholder
-                    font-size: 11px
-                    transform: translateY(-17px)
-            button
-                margin-top: 10px
-                width: 100%
-                height: 40px
-                border-radius: 30px
-                border: none
-                transition: all .5s ease
-                &:hover
-                    transform: scale(1.09)
-                    background-color: #848484
-                    color: #fff
-                &:active
-                    transform: scale(1)
             

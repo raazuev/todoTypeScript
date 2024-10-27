@@ -1,7 +1,7 @@
 import React from "react";
-import Task from "./components/Task";
-import TaskInput from "./components/TaskInput";
-import store from "./store";
+import Task from "./components/Task/Task";
+import TaskInput from "./components/TaskInput/TaskInput";
+import store from "./store/store";
 import { observer } from "mobx-react";
 
 interface ITask {
