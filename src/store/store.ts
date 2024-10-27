@@ -1,9 +1,11 @@
 import { makeAutoObservable } from "mobx";
 
-interface ITask {
+export interface ITask {
   id: number;
   title: string;
+  details: string;
   done: boolean;
+  subtasks?: ITask[];
 }
 
 class Store {
@@ -13,8 +15,8 @@ class Store {
     makeAutoObservable(this);
   }
 
-  addTask(title: string) {
-    this.tasks.push({ id: this.tasks.length, title, done: false });
+  addTask(title: string, details: string="") {
+    this.tasks.push({ id: this.tasks.length, title, details, done: false, subtasks: [] });
   }
 
   markAsDone(id: number) {

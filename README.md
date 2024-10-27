@@ -1,3 +1,3 @@
 # todoTypeScript
 
-Список задач на TypeScript и MobX
+Список задач на React, TypeScript и MobX
