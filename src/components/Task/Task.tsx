@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { observer } from "mobx-react";
 import { ITask } from "../../store/store";
+import store from "../../store/store";
 
 interface TaskProps {
   task: ITask;
@@ -14,6 +15,9 @@ interface TaskProps {
 const Task: React.FC<TaskProps> = observer(({ task, level, doneTask, deleteTask, addSubtask, onTaskClick }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [subtaskTitle, setSubtaskTitle] = useState("");
+  const [isEditing, setIsEditing] = useState(false);
+  const [newTitle, setNewTitle] = useState(task.title);
+  const [newDetails, setNewDetails] = useState(task.details);
 
   const toggleExpand = () => setIsExpanded(!isExpanded);
 
@@ -24,9 +28,41 @@ const Task: React.FC<TaskProps> = observer(({ task, level, doneTask, deleteTask,
     }
   };
 
+  const handleSelectTask = () => {
+    store.selectTask(task.id);
+  };
+
+  const handleEditTask = () => {
+    setIsEditing(true);
+  };
+
+  const handleSaveEdit = () => {
+    store.updateTask(task.id, newTitle, newDetails);
+    setIsEditing(false);
+  };
+
   return (
     <div className="task" style={{ marginLeft: level * 20 }}>
-      <span onClick={() => onTaskClick(task)}>{task.title}</span>
+      <input
+        type="checkbox"
+        checked={task.isSelected}
+        onChange={handleSelectTask}
+      />
+      {isEditing ? (
+        <div>
+          <input
+            type="text"
+            value={newTitle}
+            onChange={(e) => setNewTitle(e.target.value)}
+          />
+          <button onClick={handleSaveEdit}>Сохранить</button>
+        </div>
+      ) : (
+        <div>
+          <span onClick={() => onTaskClick(task)}>{task.title}</span>
+          <button onClick={handleEditTask}>Редактировать</button>
+        </div>
+      )}
       <button onClick={() => doneTask(task.id)}>Завершить</button>
       <button onClick={() => deleteTask(task.id)}>Удалить</button>
       <button onClick={toggleExpand}>{isExpanded ? "▲" : "▼"}</button>
@@ -57,6 +93,5 @@ const Task: React.FC<TaskProps> = observer(({ task, level, doneTask, deleteTask,
     </div>
   );
 });
-
 
 export default Task;
