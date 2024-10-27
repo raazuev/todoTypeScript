@@ -1,0 +1,21 @@
+import React from "react";
+import { useParams } from "react-router-dom";
+import store from "../../store/store";
+
+const TaskDetails: React.FC = () => {
+  const { id } = useParams<{ id: string }>();
+  const task = store.findTask(Number(id)); // Теперь доступно
+
+  if (!task) {
+    return <div>Задача не найдена</div>;
+  }
+
+  return (
+    <div>
+      <h2>{task.title}</h2>
+      <p>{task.details}</p>
+    </div>
+  );
+};
+
+export default TaskDetails;

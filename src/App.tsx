@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Task from "./components/Task/Task";
 import TaskInput from "./components/TaskInput/TaskInput";
 import SearchBar from "./components/Search/SearchBar";
+import TaskList from "./components/List/TaskList"; // Импортируем компонент для списка задач
+import TaskDetails from "./components/List/TaskDetails"; // Импортируем компонент для деталей задачи
 import store from "./store/store";
 import { observer } from "mobx-react";
 import { ITask } from "./store/store";
@@ -61,32 +64,38 @@ const App: React.FC = observer(() => {
   );
 
   return (
-    <div className={`container ${theme}`}> {}
-      <div className="App">
-        <h1 className="top">Активные задачи: {filteredTasks.filter(task => !task.done).length}</h1>
-        <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm} />
-        
-        {}
-        <div>
-          <button onClick={() => toggleTheme("light-theme")}>Светлая</button>
-          <button onClick={() => toggleTheme("dark-theme")}>Темная</button>
-          <button onClick={() => toggleTheme("system-theme")}>Системная</button>
-        </div>
+    <Router>
+      <div className={`container ${theme}`}>
+        <div className="App">
+          <h1 className="top">Активные задачи: {filteredTasks.filter(task => !task.done).length}</h1>
+          <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm} />
+          
+          <div>
+            <button onClick={() => toggleTheme("light-theme")}>Светлая</button>
+            <button onClick={() => toggleTheme("dark-theme")}>Темная</button>
+            <button onClick={() => toggleTheme("system-theme")}>Системная</button>
+          </div>
 
-        {filteredTasks.map((task) => (
-          <Task
-            key={task.id}
-            task={task}
-            level={0} 
-            doneTask={doneTask}
-            deleteTask={deleteTask}
-            addSubtask={addSubtask}
-            onTaskClick={handleTaskClick} 
-          />
-        ))}
-        <TaskInput addTask={addTask} />
+          <Routes>
+            <Route path="/" element={<TaskList tasks={filteredTasks} />} />
+            <Route path="/task/:id" element={<TaskDetails />} />
+          </Routes>
+
+          <TaskInput addTask={addTask} />
+          {filteredTasks.map((task) => (
+            <Task
+              key={task.id}
+              task={task}
+              level={0} 
+              doneTask={doneTask}
+              deleteTask={deleteTask}
+              addSubtask={addSubtask}
+              onTaskClick={handleTaskClick} 
+            />
+          ))}
+        </div>
       </div>
-    </div>
+    </Router>
   );
 });
 

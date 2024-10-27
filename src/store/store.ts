@@ -90,7 +90,7 @@ class Store {
     return undefined;
   }
 
-  private findTask(id: number, tasks: ITask[] = this.tasks): ITask | undefined {
+  public findTask(id: number, tasks: ITask[] = this.tasks): ITask | undefined {
     for (let task of tasks) {
       if (task.id === id) {
         return task;
