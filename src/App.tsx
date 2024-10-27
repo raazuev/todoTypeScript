@@ -67,20 +67,19 @@ const App: React.FC = observer(() => {
     <Router>
       <div className={`container ${theme}`}>
         <div className="App">
-          <h1 className="top">Активные задачи: {filteredTasks.filter(task => !task.done).length}</h1>
-          <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm} />
-          
-          <div>
-            <button onClick={() => toggleTheme("light-theme")}>Светлая</button>
-            <button onClick={() => toggleTheme("dark-theme")}>Темная</button>
-            <button onClick={() => toggleTheme("system-theme")}>Системная</button>
+          <div className="header">
+            <h1 className="top">Активные задачи: {filteredTasks.filter(task => !task.done).length}</h1>
+            <div className="theme-toggle">
+              <button onClick={() => toggleTheme("light-theme")}>Светлая</button>
+              <button onClick={() => toggleTheme("dark-theme")}>Темная</button>
+              <button onClick={() => toggleTheme("system-theme")}>Системная</button>
+            </div>
           </div>
-
+          <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm} />
           <Routes>
-            <Route path="/" element={<TaskList tasks={filteredTasks} />} />
+            <Route path="/" element={<TaskList tasks={filteredTasks} doneTask={doneTask} deleteTask={deleteTask} addSubtask={addSubtask} onTaskClick={handleTaskClick} />} />
             <Route path="/task/:id" element={<TaskDetails />} />
           </Routes>
-
           <TaskInput addTask={addTask} />
           {filteredTasks.map((task) => (
             <Task

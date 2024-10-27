@@ -1,0 +1,17 @@
+input
+    width: 100%
+    min-height: 50px
+    border: none
+    border-radius: 10px
+    outline: 0
+    &:hover
+        outline: 2px solid blue
+    &:focus-visible
+        outline: 0
+    &::placeholder
+        position: absolute
+        z-index: 2
+        transition: all .5s ease
+    &:focus::placeholder
+        font-size: 11px
+        transform: translateY(-17px)
