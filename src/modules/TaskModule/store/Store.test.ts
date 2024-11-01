@@ -2,7 +2,6 @@ import store from "../store/store";
 
 describe("Store", () => {
   beforeEach(() => {
-    // Сбрасываем задачи перед каждым тестом
     store.tasks = [];
   });
 

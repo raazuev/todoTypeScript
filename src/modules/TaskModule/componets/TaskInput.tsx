@@ -1,4 +1,3 @@
-// src/modules/TaskModule/components/TaskInput.tsx
 import React, { useState } from "react";
 import styles from '../styles/TaskInput.module.sass';
 
@@ -30,12 +29,6 @@ const TaskInput: React.FC<Props> = ({ addTask }) => {
         placeholder="Название задачи..."
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        onKeyDown={handleKeyDown}
-      />
-      <input
-        placeholder="Детали задачи..."
-        value={details}
-        onChange={(e) => setDetails(e.target.value)}
         onKeyDown={handleKeyDown}
       />
       <button onClick={handleAddTask}>Добавить задачу</button>

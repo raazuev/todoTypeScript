@@ -1,4 +1,3 @@
-// src/modules/CoreModule/components/ThemeToggle.tsx
 import React from 'react';
 import styles from '../styles/ThemeToggle.module.sass';
 

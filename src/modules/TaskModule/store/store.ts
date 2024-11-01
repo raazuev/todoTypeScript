@@ -28,7 +28,7 @@ class Store {
     localStorage.setItem("tasks", JSON.stringify(this.tasks));
   }
 
-  addTask(title: string, details: string = "", parentId?: number) {
+  addTask(title: string, details: string = "") {
     const newTask: Task = {
       id: Date.now(),
       title,
@@ -37,16 +37,7 @@ class Store {
       isSelected: false,
       subtasks: [],
     };
-
-    if (parentId) {
-      const parentTask = this.findTask(parentId);
-      if (parentTask) {
-        parentTask.subtasks?.push(newTask);
-      }
-    } else {
-      this.tasks.push(newTask);
-    }
-
+    this.tasks.push(newTask);
     this.saveTasks();
   }
 
@@ -59,7 +50,7 @@ class Store {
   }
 
   deleteTask(id: number) {
-    const taskToDelete = this.findTask(id); // Убедитесь, что вы ищете задачу
+    const taskToDelete = this.findTask(id);
     if (taskToDelete) {
       this.tasks = this.tasks.filter(task => task.id !== id);
       this.saveTasks();

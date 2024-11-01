@@ -1,4 +1,3 @@
-// src/modules/TaskModule/pages/TaskDetailPage.tsx
 import React from "react";
 import { useParams } from "react-router-dom";
 import store from "../store/store";

@@ -1,4 +1,3 @@
-// src/modules/TaskModule/pages/TaskPage.tsx
 import React, { useState, useEffect } from "react";
 import { observer } from "mobx-react";
 import { TaskInput } from '../../TaskModule';
@@ -44,7 +43,7 @@ const TasksPage: React.FC = observer(() => {
       </div>
       <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm} />
       <TaskInput addTask={addTask} />
-      <TaskList searchTerm={searchTerm} /> {/* Передаем searchTerm */}
+      <TaskList searchTerm={searchTerm} /> {}
     </div>
   );
 });

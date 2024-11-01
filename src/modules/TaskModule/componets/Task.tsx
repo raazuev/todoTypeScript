@@ -1,4 +1,3 @@
-// src/modules/TaskModule/components/Task.tsx
 import React, { useState } from "react";
 import { observer } from "mobx-react";
 import { Task as TaskType } from "../store/store";
@@ -15,7 +14,7 @@ const Task: React.FC<TaskProps> = observer(({ task, level, doneTask, deleteTask 
   const [isExpanded, setIsExpanded] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [newTitle, setNewTitle] = useState(task.title);
-  const [newDetails, setNewDetails] = useState(task.details); // Для редактирования деталей
+  const [newDetails, setNewDetails] = useState(task.details);
   const [subtaskInput, setSubtaskInput] = useState("");
 
   const toggleExpand = () => setIsExpanded(!isExpanded);
@@ -29,8 +28,8 @@ const Task: React.FC<TaskProps> = observer(({ task, level, doneTask, deleteTask 
 
   const handleEdit = () => {
     if (isEditing) {
-      task.title = newTitle; // Обновляем заголовок задачи
-      task.details = newDetails; // Обновляем детали задачи
+      task.title = newTitle;
+      task.details = newDetails;
     }
     setIsEditing(!isEditing);
   };
@@ -73,7 +72,7 @@ const Task: React.FC<TaskProps> = observer(({ task, level, doneTask, deleteTask 
       ) : (
         <>
           <span onClick={toggleExpand}>{task.title}</span>
-          {task.details && <span className={styles.details}> - {task.details}</span>} {/* Отображаем детали задачи */}
+          {task.details && <span className={styles.details}>( {task.details} )</span>}
         </>
       )}
       <button onClick={() => deleteTask(task.id)}>Удалить</button>
