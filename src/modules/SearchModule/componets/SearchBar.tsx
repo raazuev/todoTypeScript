@@ -1,4 +1,5 @@
 import React from "react";
+import styles from '../styles/SearchBar.module.sass';
 
 interface SearchBarProps {
   searchTerm: string;
@@ -7,12 +8,12 @@ interface SearchBarProps {
 
 const SearchBar: React.FC<SearchBarProps> = ({ searchTerm, onSearchChange }) => {
   return (
-    <input className="search-input"
+    <input
+      className={styles.searchInput}
       type="text"
       placeholder="Поиск задач..."
       value={searchTerm}
       onChange={(e) => onSearchChange(e.target.value)}
-      style={{ marginBottom: "20px", padding: "10px", width: "100%" }}
     />
   );
 };

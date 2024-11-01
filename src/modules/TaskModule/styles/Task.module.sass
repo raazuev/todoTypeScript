@@ -1,0 +1,44 @@
+// src/modules/TaskModule/styles/Task.module.sass
+.task
+  display: flex
+  align-items: center
+  gap: 10px
+  margin: 10px 0
+  padding: 5px
+  border-radius: 5px
+  background-color: #f9f9f9
+  transition: background-color 0.3s
+
+  &:hover
+    background-color: #e0e0e0
+
+  input[type="checkbox"]
+    margin-right: 10px
+
+.subtasks
+  margin-left: 20px
+  padding-left: 10px
+  border-left: 2px solid #ccc
+
+// Адаптивные стили
+@media (max-width: 768px) // Планшеты
+  .task
+    flex-direction: column
+    align-items: flex-start
+
+  .subtasks
+    margin-left: 0
+    padding-left: 0
+    border-left: none
+// Адаптивные стили
+@media (max-width: 480px) // Мобильные устройства
+.task
+    padding: 10px
+    font-size: 0.9em
+    h2
+        font-size: 1.1em
+        .taskInput
+        flex-direction: column
+        input
+            width: 100%
+            padding: 8px

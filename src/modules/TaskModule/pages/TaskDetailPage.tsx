@@ -1,8 +1,9 @@
+// src/modules/TaskModule/pages/TaskDetailPage.tsx
 import React from "react";
 import { useParams } from "react-router-dom";
-import store from "../../store/store";
+import store from "../store/store";
 
-const TaskDetails: React.FC = () => {
+const TaskDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const task = store.findTask(Number(id));
 
@@ -18,4 +19,4 @@ const TaskDetails: React.FC = () => {
   );
 };
 
-export default TaskDetails;
+export default TaskDetailPage;

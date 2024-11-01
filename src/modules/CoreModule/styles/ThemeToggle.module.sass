@@ -1,0 +1,34 @@
+.themeToggle
+    display: flex
+    gap: 10px
+    align-items: center
+    margin: 10px 0
+    button
+        padding: 8px 12px
+        border: none
+        border-radius: 5px
+        cursor: pointer
+        transition: background-color 0.3s, color 0.3s
+        font-size: 1em
+        &.light-theme
+            background-color: #f0f0f0
+            color: #333
+            &:hover
+                background-color: #e0e0e0
+        .dark-theme
+            background-color: #333
+            color: #f0f0f0
+            &:hover
+                background-color: #444
+        .system-theme
+            background-color: #007bff
+            color: #fff
+            &:hover
+                background-color: #0056b3
+@media (max-width: 768px)
+    .themeToggle
+        flex-direction: column
+        align-items: flex-start
+        button
+            width: 100%
+            text-align: left

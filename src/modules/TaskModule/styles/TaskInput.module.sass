@@ -1,0 +1,24 @@
+// src/modules/TaskModule/styles/TaskInput.module.sass
+.taskInput
+  display: flex
+  gap: 10px
+  margin-top: 20px
+
+  input
+    flex: 1
+    padding: 10px
+    border: 1px solid #ccc
+    border-radius: 5px
+    outline: none
+    transition: border-color 0.3s
+
+    &:focus
+      border-color: #007bff
+
+// Адаптивные стили
+@media (max-width: 768px) // Планшеты
+  .taskInput
+    flex-direction: column
+
+    input
+      width: 100%
