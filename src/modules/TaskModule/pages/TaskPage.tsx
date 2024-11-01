@@ -37,11 +37,12 @@ const TasksPage: React.FC = observer(() => {
 
   return (
     <div className={`container ${theme}`}>
-      <div className="header">
-        <h1 className="top">Активные задачи: {store.activeTasks.length}</h1>
+      <div className='header'>
+        <h1>Список задач</h1>
         <ThemeToggle toggleTheme={toggleTheme} />
       </div>
       <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm} />
+      <h2 className="top">Активные задачи: {store.activeTasks.length}</h2>
       <TaskInput addTask={addTask} />
       <TaskList searchTerm={searchTerm} /> {}
     </div>

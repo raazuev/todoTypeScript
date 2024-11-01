@@ -25,6 +25,7 @@ const TaskInput: React.FC<Props> = ({ addTask }) => {
 
   return (
     <div className={styles.taskInput}>
+      <h3>Список задач</h3>
       <input
         placeholder="Название задачи..."
         value={input}

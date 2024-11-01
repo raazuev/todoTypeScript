@@ -49,7 +49,7 @@ const Task: React.FC<TaskProps> = observer(({ task, level, doneTask, deleteTask 
   };
 
   return (
-    <div className={styles.task} style={{ marginLeft: `${level * 20}px` }}>
+    <div className={styles.task}>
       <input
         type="checkbox"
         checked={task.done}

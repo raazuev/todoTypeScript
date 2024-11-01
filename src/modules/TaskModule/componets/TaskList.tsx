@@ -9,6 +9,7 @@ import styles from '../styles/TaskList.module.sass';
 const TaskList: React.FC<{ searchTerm: string }> = observer(({ searchTerm }) => {
   return (
     <div className={styles.taskSection}>
+      <h3>Нет задач</h3>
       {store.tasks.filter(task => task.title.includes(searchTerm)).map(task => (
         <Task
           key={task.id}
