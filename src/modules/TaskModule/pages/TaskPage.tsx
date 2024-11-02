@@ -5,7 +5,7 @@ import { TaskList } from '../../TaskModule';
 import { ThemeToggle } from "../../CoreModule";
 import { SearchBar } from "../../SearchModule";
 import store from "../store/store";
-import '../styles/TaskPage.module.sass';
+import styles from '../styles/TaskPage.module.sass';
 
 const TasksPage: React.FC = observer(() => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -21,7 +21,7 @@ const TasksPage: React.FC = observer(() => {
       const newTheme = e.matches ? "dark-theme" : "light-theme";
       setTheme(newTheme);
       localStorage.setItem("theme", newTheme);
-      document.body.className = newTheme;
+      document.body.className = newTheme; 
     });
   }, []);
 
@@ -37,14 +37,14 @@ const TasksPage: React.FC = observer(() => {
 
   return (
     <div className={`container ${theme}`}>
-      <div className='header'>
+      <div className={styles.header}>
         <h1>Список задач</h1>
         <ThemeToggle toggleTheme={toggleTheme} />
       </div>
       <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm} />
       <h2 className="top">Активные задачи: {store.activeTasks.length}</h2>
       <TaskInput addTask={addTask} />
-      <TaskList searchTerm={searchTerm} /> {}
+      <TaskList searchTerm={searchTerm} />
     </div>
   );
 });

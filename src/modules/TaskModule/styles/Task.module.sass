@@ -1,36 +1,31 @@
 .task
   display: flex
-  flex-direction: column
+  justify-content: space-between
   align-items: center
   gap: 10px
   margin: 10px 0
   padding: 10px
   border-radius: 5px
-  background-color: #f9f9f9
   transition: background-color 0.3s
-  width: 100% // Занимает всю ширину
-
+  width: 100%
   &:hover
-    background-color: #e0e0e0
-
+    background-color: #047014
   input[type="checkbox"]
     margin-right: 10px
-
+  button
+    display: flex  
 .subtasks
   margin-left: 20px
   padding-left: 10px
   border-left: 2px solid #ccc
-
 .edit-delete-buttons
   display: flex
   justify-content: space-between
-  width: 100% // Занимает всю ширину
-
+  width: 100% 
 @media (max-width: 768px)
   .task
     flex-direction: column
     align-items: flex-start
-
   .subtasks
     margin-left: 0
     padding-left: 0

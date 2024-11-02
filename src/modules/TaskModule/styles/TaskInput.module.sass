@@ -1,24 +1,35 @@
 .taskInput
   display: flex
-  justify-content: center // Центрируем элементы
+  justify-content: center
   gap: 10px
   margin-top: 20px
-  width: 100% // Занимает всю ширину
-
+  width: 100%
   input
     flex: 1
-    padding: 10px
+    padding: 16px
     border: 1px solid #ccc
-    border-radius: 5px
+    border-radius: 20px
     outline: none
     transition: border-color 0.3s
-
     &:focus
       border-color: #007bff
-
+      &::placeholder
+        position: absolute
+        z-index: 2
+        transition: all .5s ease
+      &:focus::placeholder
+        font-size: 10px
+        transform: translateY(-10px)
+  button
+    border: none
+    border-radius: 29px
+    padding: 18px 10px
+    font-size: 12px
+    transition: transform .3s ease
+    &:hover
+      transform: scale(1.05)
 @media (max-width: 768px)
   .taskInput
     flex-direction: column
-
     input
       width: 100%

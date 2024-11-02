@@ -25,14 +25,13 @@ const TaskInput: React.FC<Props> = ({ addTask }) => {
 
   return (
     <div className={styles.taskInput}>
-      <h3>Список задач</h3>
       <input
         placeholder="Название задачи..."
         value={input}
         onChange={(e) => setInput(e.target.value)}
         onKeyDown={handleKeyDown}
       />
-      <button onClick={handleAddTask}>Добавить задачу</button>
+      <button onClick={handleAddTask}>Добавить</button>
     </div>
   );
 };
