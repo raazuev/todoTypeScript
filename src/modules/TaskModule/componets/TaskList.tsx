@@ -30,15 +30,17 @@ const TaskList: React.FC<{ searchTerm: string }> = observer(({ searchTerm }) => 
         <h2 className={styles.noTasks}>Нет задач</h2>
       ) : (
         <>
-          {tasksToShow.map(task => (
-            <Task
-              key={task.id}
-              task={task}
-              level={0}
-              doneTask={store.markAsDone.bind(store)}
-              deleteTask={store.deleteTask.bind(store)}
-            />
+          <div className={styles.taskListContainer}>
+            {tasksToShow.map(task => (
+              <Task
+                key={task.id}
+                task={task}
+                level={0}
+                doneTask={store.markAsDone.bind(store)}
+                deleteTask={store.deleteTask.bind(store)}
+              />
           ))}
+          </div>
           {filteredTasks.length > 5 && (
             <button onClick={toggleExpand} className={styles.toggleButton}>
               {isExpanded ? "Свернуть" : "Развернуть"} все задачи

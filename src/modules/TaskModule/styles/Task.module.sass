@@ -2,31 +2,32 @@
   display: flex
   justify-content: space-between
   align-items: center
-  gap: 10px
   margin: 10px 0
-  padding: 10px
-  border-radius: 5px
+  padding: 20px
+  border-radius: 20px
   transition: background-color 0.3s
   width: 100%
   &:hover
     background-color: #047014
   input[type="checkbox"]
     margin-right: 10px
+  span
+    cursor: pointer
   button
-    display: flex  
+    padding: 8px 8px
+    border-radius: 10px
+    border: none
+    cursor: pointer
+    font-size: 1.2em
+.completed
+  text-decoration: line-through
+.deleteButton
+  background-color: red
+.editButton
+  background-color: green
+.addSubtaskButton
+  background-color: blue
 .subtasks
-  margin-left: 20px
+  margin-left: 50px
   padding-left: 10px
   border-left: 2px solid #ccc
-.edit-delete-buttons
-  display: flex
-  justify-content: space-between
-  width: 100% 
-@media (max-width: 768px)
-  .task
-    flex-direction: column
-    align-items: flex-start
-  .subtasks
-    margin-left: 0
-    padding-left: 0
-    border-left: none

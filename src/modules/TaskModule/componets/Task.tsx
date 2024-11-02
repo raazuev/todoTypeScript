@@ -71,12 +71,16 @@ const Task: React.FC<TaskProps> = observer(({ task, level, doneTask, deleteTask 
         </>
       ) : (
         <>
-          <span onClick={toggleExpand}>{task.title}</span>
+          <span onClick={toggleExpand} className={task.done ? styles.completed : ''}>{task.title}</span>
           {task.details && <span className={styles.details}>( {task.details} )</span>}
         </>
       )}
-      <button onClick={() => deleteTask(task.id)}>Удалить</button>
-      <button onClick={handleEdit}>{isEditing ? "Сохранить" : "Редактировать"}</button>
+      <button onClick={() => deleteTask(task.id)} className={styles.deleteButton}>
+      </button>
+      <button onClick={handleEdit} className={styles.editButton}>
+      </button>
+      <button onClick={toggleExpand} className={styles.addSubtaskButton}>
+      </button>
       {isExpanded && (
         <div className={styles.subtasks}>
           {task.subtasks?.map(subtask => (
