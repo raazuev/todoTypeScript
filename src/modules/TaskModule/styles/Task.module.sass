@@ -7,18 +7,24 @@
   border-radius: 20px
   transition: background-color 0.3s
   width: 100%
+  background-color: #9db0c5
+  gap: 10%
   &:hover
     background-color: #047014
   input[type="checkbox"]
     margin-right: 10px
   span
     cursor: pointer
-  button
-    padding: 8px 8px
-    border-radius: 10px
-    border: none
-    cursor: pointer
-    font-size: 1.2em
+  .btn
+    display: flex
+    flex-direction: column
+    gap: 10px
+    button
+      padding: 8px 8px
+      border-radius: 10px
+      border: none
+      cursor: pointer
+      font-size: 1.2em
 .completed
   text-decoration: line-through
 .deleteButton
